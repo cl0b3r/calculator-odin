@@ -1,6 +1,7 @@
-
-
+const display = document.querySelector(".display");
+display.innerText = "2+3 = 5"
 /* functions */
+
 
 function add(a, b){
     return a + b;
