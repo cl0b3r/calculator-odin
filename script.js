@@ -1,39 +1,31 @@
-const display = document.querySelector(".display");
-display.innerText = "2+3 = 5"
-/* functions */
+const display = document.querySelector(".display")
+const buttons = document.querySelectorAll("button");
 
 
-function add(a, b){
+function add(a,b){
     return a + b;
-};
-
-function substract(a, b){
-    return a - b
-};
-
-function multiply(a,  b){
-    return a * b;
-};
-
-function divide(a, b){
-    return a / b;
-};
-
-let firstNum;
-let operator;
-let secondNum;
-
-function operate(num1, op, num2){
-    if(op == "+"){
-        return add(num1, num2);
-    }
-    else if(op ==="-"){
-        return substract(num1, num2);
-    }
-    else if(op === "x"){
-        return multiply(num1, num2);
-    }
-    else if(op === "/"){
-        return divide(num1,num2)
-    }
 }
+function substraction(){
+    return a - b;
+}
+function multiplication(a,b){
+    return a * b;
+}
+function division(a, b){
+    return a / b;
+}
+
+let numOne = 0;
+let numTwo = 0;
+let operator = "";
+
+
+buttons.forEach((button) => {
+    button.addEventListener("click", ()=>{
+        display.value += button.innerText;
+
+        if(button.innerText === "C"){
+            display.value = "";
+        }
+    })
+})
