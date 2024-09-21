@@ -1,6 +1,12 @@
-const display = document.querySelector(".display")
-const buttons = document.querySelectorAll("button");
-
+const display = document.querySelector(".display");
+const previous = document.querySelector(".previous");
+const current = document.querySelector(".current");
+const buttons = document.querySelectorAll(".btn");
+const equalBtn = document.querySelector(".equal");
+const clearBtn = document.querySelector(".clear")
+let numOne = "";
+let numTwo = "";
+let operator = "";
 
 function add(a,b){
     return a + b;
@@ -15,17 +21,13 @@ function division(a, b){
     return a / b;
 }
 
-let numOne = 0;
-let numTwo = 0;
-let operator = "";
-
+const opArray = ["+", "-", "X", "/"]
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
-        display.value += button.innerText;
-
-        if(button.innerText === "C"){
-            display.value = "";
-        }
+        
+       
     })
 })
+
+
