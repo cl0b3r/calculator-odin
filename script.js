@@ -25,7 +25,26 @@ const opArray = ["+", "-", "X", "/"]
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
-        
+
+        let btnValue = button.innerText;
+        if(!Number.isInteger(btnValue)){
+            current.innerText += btnValue;
+            numOne += btnValue;
+            for(let op of opArray){
+                if(btnValue == op){
+                    current.innerText = ""
+                    previous.append(numOne);
+                    numTwo += btnValue;
+                }
+            }
+            if(btnValue == equalBtn.innerText){
+                const resultDiv = document.createElement("div")
+                resultDiv.innerText = numOne + numTwo
+                display.appendChild(resultDiv)
+
+            }
+
+        }
        
     })
 })
