@@ -21,12 +21,26 @@ function division(a, b){
     return a / b;
 }
 
+function operation(a, b){
+    let num1= a.split();
+    let num2= b.split();
+
+    for(let i = 0; i < num1.length && i < num2.length; i++){
+        const element1 = num1[i];
+        const element2 = num2[i];
+        if(isNaN(element1) || isNaN(element2)){
+            
+        }
+    }
+    
+}
 const opArray = ["+", "-", "X", "/"]
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
 
         let btnValue = button.innerText;
+
         if(!Number.isInteger(btnValue)){
             current.innerText += btnValue;
             numOne += btnValue;
@@ -38,9 +52,11 @@ buttons.forEach((button) => {
                 }
             }
             if(btnValue == equalBtn.innerText){
-                const resultDiv = document.createElement("div")
-                resultDiv.innerText = numOne + numTwo
-                display.appendChild(resultDiv)
+                const resultDiv = document.createElement("div");
+                resultDiv.innerText = numOne + numTwo;
+                current.innerText = "";
+                previous.innerText = "";
+                display.appendChild(resultDiv);
 
             }
 
