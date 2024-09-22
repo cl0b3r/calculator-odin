@@ -4,7 +4,7 @@ const current = document.querySelector(".current");
 const buttons = document.querySelectorAll(".btn");
 const equalBtn = document.querySelector(".equal");
 const clearBtn = document.querySelector(".clear")
-let numOne = "";
+let numOne = 0;
 let numTwo = "";
 let operator = "";
 
@@ -21,29 +21,38 @@ function division(a, b){
     return a / b;
 }
 
-function operation(a, b){
-    let num1= a.split();
-    let num2= b.split();
+/* function operation(a,b){
 
-    for(let i = 0; i < num1.length && i < num2.length; i++){
-        const element1 = num1[i];
-        const element2 = num2[i];
-        if(isNaN(element1) || isNaN(element2)){
-            
+    const alpha = 'abcdefghijklmnopqrstuvwxyz-=+X/'
+    let num1= a.split();
+    let num2 = b.split()
+
+    for(let i = 0; i < num1.length  && i < num2.length ; i++){
+        const element1 = num1.indexOf(i);
+        const element2 = num2[i]; 
+        if(isNaN(element1)  || isNaN(element2) ){
+            num1.splice(element1, 1); 
         }
     }
     
-}
+} */
+
+
 const opArray = ["+", "-", "X", "/"]
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
 
         let btnValue = button.innerText;
+        current.innerText += btnValue;
 
         if(!Number.isInteger(btnValue)){
-            current.innerText += btnValue;
+            if(!isNaN(btnValue)){
+                btnValue = Number(btnValue)
+            }
             numOne += btnValue;
+            console.log(typeof(numOne))
+            
             for(let op of opArray){
                 if(btnValue == op){
                     current.innerText = ""
@@ -59,8 +68,8 @@ buttons.forEach((button) => {
                 display.appendChild(resultDiv);
 
             }
-
         }
+        
        
     })
 })
